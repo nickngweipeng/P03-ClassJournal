@@ -8,7 +8,6 @@ import java.io.Serializable;
 
 public class DailyCA implements Serializable{
     private String week;
-    private String title;
     private String grade;
 
     public String getWeek() {
@@ -19,9 +18,8 @@ public class DailyCA implements Serializable{
         return grade;
     }
 
-    public DailyCA(String week,String title, String grade) {
+    public DailyCA(String week,String grade) {
         this.week = week;
-        this.title = title;
         this.grade = grade;
     }
 }
