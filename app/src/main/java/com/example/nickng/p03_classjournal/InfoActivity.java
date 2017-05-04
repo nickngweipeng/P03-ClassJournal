@@ -18,6 +18,7 @@ public class InfoActivity extends AppCompatActivity {
     ArrayList<DailyCA> dailyCA;
     int requestCode = 1;
     DailyCA newObject;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +27,7 @@ public class InfoActivity extends AppCompatActivity {
         Button btnAdd = (Button) findViewById(R.id.buttonAdd);
         Button btnEmail = (Button) findViewById(R.id.buttonEmail);
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
+
         Intent i = getIntent();
         final String types = i.getStringExtra("class");
 
@@ -97,7 +99,6 @@ public class InfoActivity extends AppCompatActivity {
             if(newObject!=null){
                 dailyCA.add(newObject);
             }
-
 
         }
     }
