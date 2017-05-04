@@ -9,9 +9,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import static com.example.nickng.p03_classjournal.R.layout.activity_add_grade;
 
 public class addGrade extends AppCompatActivity {
     TextView tvWeek;
@@ -21,7 +18,7 @@ public class addGrade extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(activity_add_grade);
+        setContentView(R.layout.activity_add_grade);
          iv = (ImageView)findViewById(R.id.iv);
         iv.setImageResource(R.drawable.dg);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
@@ -38,7 +35,8 @@ public class addGrade extends AppCompatActivity {
                 RadioButton rb = (RadioButton) findViewById(selected);
                 String grade = rb.getText().toString();
                 Intent i = new Intent();
-                Toast.makeText(addGrade.this,grade,Toast.LENGTH_SHORT).show();
+                Integer position = Integer.getInteger(pos);
+
                 i.putExtra("grade", grade);
                 // Set result to RESULT_OK to indicate normal
                 // response and pass in the intent containing the
