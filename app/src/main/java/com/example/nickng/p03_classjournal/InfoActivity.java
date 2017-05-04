@@ -35,6 +35,14 @@ public class InfoActivity extends AppCompatActivity {
 
         dailyCA = new ArrayList<DailyCA>();
 
+        DailyCA obj1 = new DailyCA("A","C347",1);
+        DailyCA obj2 = new DailyCA("B","C347",2);
+        DailyCA obj3 = new DailyCA("C","C347",3);
+
+        dailyCA.add(obj1);
+        dailyCA.add(obj2);
+        dailyCA.add(obj3);
+
 
         // Link this Activity object, the row.xml layout for
         //  each row and the food String array together
@@ -71,8 +79,8 @@ public class InfoActivity extends AppCompatActivity {
                 String to = "jackielim8695@gmail.com";
                 String subject = "C347";
                 String message = "Hi Faci \n\n I am .....\n Please see my remarks so far, Thank You \n\n";
-                for (int i = 0; i < dailyCA.size() + 1; i++) {
-                    message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(0).getDgGrade() + "\n";
+                for (int i = 0; i < dailyCA.size(); i++) {
+                    message += " Week : " + dailyCA.get(i).getWeek() + " DG:" + dailyCA.get(i).getDgGrade() + "\n";
                 }
 
                 Intent email = new Intent(Intent.ACTION_SEND);
