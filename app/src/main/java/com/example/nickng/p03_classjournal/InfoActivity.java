@@ -26,8 +26,14 @@ public class InfoActivity extends AppCompatActivity {
         Button btnEmail = (Button)findViewById(R.id.buttonEmail);
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
         Intent i = getIntent();
-        String types = i.getStringExtra("class");
+        final String types = i.getStringExtra("class");
+
+        DailyCA newObject = (DailyCA) i.getSerializableExtra("object");
         dailyCA = new ArrayList<DailyCA>();
+
+        if(newObject!=null){
+            dailyCA.add(newObject);
+        }
 
         // Link this Activity object, the row.xml layout for
         //  each row and the food String array together
@@ -51,6 +57,7 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent rpIntent = new Intent(InfoActivity.this, addGrade.class);
+                rpIntent.putExtra("module", types);
                 rpIntent.putExtra("pos", String.valueOf(dailyCA.size()+1));
                 startActivity(rpIntent);
             }

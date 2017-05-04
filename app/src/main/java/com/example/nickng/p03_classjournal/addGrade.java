@@ -19,12 +19,14 @@ public class addGrade extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
-        final String pos = getIntent().getStringExtra("pos");
          iv = (ImageView)findViewById(R.id.iv);
         iv.setImageResource(R.drawable.dg);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         tvWeek = (TextView) findViewById(R.id.tvWeek);
         rg = (RadioGroup) findViewById(R.id.rgGrade);
+
+        final String pos = getIntent().getStringExtra("pos");
+        final String module = getIntent().getStringExtra("module");
         tvWeek.setText("Week " + pos);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +36,8 @@ public class addGrade extends AppCompatActivity {
                 RadioButton rb = (RadioButton) findViewById(selected);
                 String grade = rb.getText().toString();
                 Intent i = new Intent();
-                i.putExtra("addgrade", grade);
+                DailyCA addObject = new DailyCA(grade,module,Integer.getInteger(pos));
+                i.putExtra("object", addObject);
                 // Set result to RESULT_OK to indicate normal
                 // response and pass in the intent containing the
                 // like
