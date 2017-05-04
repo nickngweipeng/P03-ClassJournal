@@ -16,24 +16,22 @@ public class InfoActivity extends AppCompatActivity {
     ListView lv1;
     ArrayAdapter aa1;
     ArrayList<DailyCA> dailyCA;
-
+    int requestCode = 1;
+    DailyCA newObject;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
-        Button btnRP = (Button)findViewById(R.id.buttonInfo);
-        Button btnAdd = (Button)findViewById(R.id.buttonAdd);
-        Button btnEmail = (Button)findViewById(R.id.buttonEmail);
+        Button btnRP = (Button) findViewById(R.id.buttonInfo);
+        Button btnAdd = (Button) findViewById(R.id.buttonAdd);
+        Button btnEmail = (Button) findViewById(R.id.buttonEmail);
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
         Intent i = getIntent();
         final String types = i.getStringExtra("class");
 
-        DailyCA newObject = (DailyCA) i.getSerializableExtra("object");
+        newObject = (DailyCA) i.getSerializableExtra("object");
         dailyCA = new ArrayList<DailyCA>();
 
-        if(newObject!=null){
-            dailyCA.add(newObject);
-        }
 
         // Link this Activity object, the row.xml layout for
         //  each row and the food String array together
@@ -58,8 +56,8 @@ public class InfoActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent rpIntent = new Intent(InfoActivity.this, addGrade.class);
                 rpIntent.putExtra("module", types);
-                rpIntent.putExtra("pos", String.valueOf(dailyCA.size()+1));
-                startActivity(rpIntent);
+                rpIntent.putExtra("pos", String.valueOf(dailyCA.size() + 1));
+                startActivityForResult(rpIntent, requestCode);
             }
         });
 
@@ -71,12 +69,12 @@ public class InfoActivity extends AppCompatActivity {
                 String to = "jackielim8695@gmail.com";
                 String subject = "C347";
                 String message = "Hi Faci \n\n I am .....\n Please see my remarks so far, Thank You \n\n";
-                for (int i=0; i < dailyCA.size()+1; i++){
+                for (int i = 0; i < dailyCA.size() + 1; i++) {
                     message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(0).getDgGrade();
                 }
 
                 Intent email = new Intent(Intent.ACTION_SEND);
-                email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+                email.putExtra(Intent.EXTRA_EMAIL, new String[]{to});
                 //email.putExtra(Intent.EXTRA_CC, new String[]{ to});
                 //email.putExtra(Intent.EXTRA_BCC, new String[]{to});
                 email.putExtra(Intent.EXTRA_SUBJECT, subject);
@@ -89,4 +87,19 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        // Only handle when 2nd activity closed normally
+        //  and data contains something
+        if(resultCode == RESULT_OK){
+            if(newObject!=null){
+                dailyCA.add(newObject);
+            }
+
+
+        }
+    }
+
 }
