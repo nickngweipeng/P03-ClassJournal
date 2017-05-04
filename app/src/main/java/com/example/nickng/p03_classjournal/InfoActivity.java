@@ -24,7 +24,6 @@ public class InfoActivity extends AppCompatActivity {
         Button btnRP = (Button)findViewById(R.id.buttonInfo);
         Button btnAdd = (Button)findViewById(R.id.buttonAdd);
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
-
         Intent i = getIntent();
         String types = i.getStringExtra("class");
         dailyCA = new ArrayList<DailyCA>();
@@ -41,7 +40,7 @@ public class InfoActivity extends AppCompatActivity {
                 Intent rpIntent = new Intent(Intent.ACTION_VIEW);
                 // Set the URL to be used.
                 rpIntent.setData(Uri.parse("http://www.rp.edu.sg"));
-                
+
                 startActivity(rpIntent);
 
             }
