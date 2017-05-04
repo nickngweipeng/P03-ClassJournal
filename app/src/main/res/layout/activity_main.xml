@@ -8,9 +8,14 @@
     tools:context="com.example.nickng.p03_classjournal.MainActivity">
 
 
-    <Button
-        android:id="@+id/btnClass"
+    <ListView
+        android:id="@+id/lvClass"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tvClass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="TextView" />
 </LinearLayout>
