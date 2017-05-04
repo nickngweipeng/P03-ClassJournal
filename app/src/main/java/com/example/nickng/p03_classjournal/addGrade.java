@@ -20,7 +20,7 @@ public class addGrade extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
         final String pos = getIntent().getStringExtra("pos");
-         iv = (ImageView)findViewById(R.id.iv);
+        iv = (ImageView)findViewById(R.id.iv);
         iv.setImageResource(R.drawable.dg);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         tvWeek = (TextView) findViewById(R.id.tvWeek);
