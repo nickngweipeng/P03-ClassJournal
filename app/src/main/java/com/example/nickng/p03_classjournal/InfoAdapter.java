@@ -56,7 +56,7 @@ public class InfoAdapter extends ArrayAdapter<DailyCA> {
 
         tvGrade.setText(currentWeek.getDgGrade());
         // Set the image to star or nostar accordingly
-            ivIcon.setImageResource(android.R.drawable.dg);
+            ivIcon.setImageResource(R.drawable.dg);
 
         // Return the nicely done up View to the ListView
         return rowView;
