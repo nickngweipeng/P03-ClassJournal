@@ -35,7 +35,7 @@ public class addGrade extends AppCompatActivity {
                 RadioButton rb = (RadioButton) findViewById(selected);
                 String grade = rb.getText().toString();
                 Intent i = new Intent();
-                Integer position = Integer.getInteger(pos);
+//                Integer position = Integer.getInteger(pos);
 
                 i.putExtra("grade", grade);
                 // Set result to RESULT_OK to indicate normal
