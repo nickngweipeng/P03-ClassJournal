@@ -80,7 +80,7 @@ public class InfoActivity extends AppCompatActivity {
                 String subject = "C347";
                 String message = "Hi Faci \n\n I am .....\n Please see my remarks so far, Thank You \n\n";
                 for (int i = 0; i < dailyCA.size() + 1; i++) {
-                    message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(0).getDgGrade();
+                    message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(0).getDgGrade()+"\n";
                 }
 
                 Intent email = new Intent(Intent.ACTION_SEND);
