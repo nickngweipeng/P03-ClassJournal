@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -13,12 +14,14 @@ public class addGrade extends AppCompatActivity {
     TextView tvWeek;
     RadioGroup rg;
     Button btnSubmit;
-
+    ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_grade);
         final String pos = getIntent().getStringExtra("pos");
+         iv = (ImageView)findViewById(R.id.iv);
+        iv.setImageResource(R.drawable.dg);
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         tvWeek = (TextView) findViewById(R.id.tvWeek);
         rg = (RadioGroup) findViewById(R.id.rgGrade);
