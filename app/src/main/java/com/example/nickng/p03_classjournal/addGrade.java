@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class addGrade extends AppCompatActivity {
     TextView tvWeek;
@@ -35,9 +36,9 @@ public class addGrade extends AppCompatActivity {
                 RadioButton rb = (RadioButton) findViewById(selected);
                 String grade = rb.getText().toString();
                 Intent i = new Intent();
-                Integer position = Integer.getInteger(pos);
 
                 i.putExtra("grade", grade);
+//                Toast.makeText(addGrade.this,grade,Toast.LENGTH_SHORT).show();
                 // Set result to RESULT_OK to indicate normal
                 // response and pass in the intent containing the
                 // like

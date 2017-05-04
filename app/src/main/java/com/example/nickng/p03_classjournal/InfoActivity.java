@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,7 +19,7 @@ public class InfoActivity extends AppCompatActivity {
     ArrayList<DailyCA> dailyCA;
     int requestCode = 1;
     String types;
-    String grade;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +32,7 @@ public class InfoActivity extends AppCompatActivity {
         Intent i = getIntent();
         types = i.getStringExtra("class");
 
-        String grade = i.getStringExtra("grade");
+
         dailyCA = new ArrayList<DailyCA>();
 
 
@@ -88,18 +89,22 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         // Only handle when 2nd activity closed normally
         //  and data contains something
-        if(resultCode == RESULT_OK){
-            if(grade!=null){
-                DailyCA newObject = new DailyCA(grade, types,dailyCA.size());
-                dailyCA.add(newObject);
-            }
+        if (resultCode == RESULT_OK) {
 
+            String grade = data.getStringExtra("grade");
+            Toast.makeText(InfoActivity.this, grade, Toast.LENGTH_SHORT).show();
+            Toast.makeText(InfoActivity.this, types, Toast.LENGTH_SHORT).show();
+            Toast.makeText(InfoActivity.this, String.valueOf(dailyCA.size()+1), Toast.LENGTH_SHORT).show();
+            DailyCA newObject = new DailyCA(grade, types, dailyCA.size());
+            dailyCA.add(0,newObject);
+aa1.notifyDataSetChanged();
         }
     }
 
