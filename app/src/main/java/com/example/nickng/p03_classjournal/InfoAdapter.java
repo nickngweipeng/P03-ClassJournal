@@ -21,6 +21,7 @@ public class InfoAdapter extends ArrayAdapter<DailyCA> {
     private Context context;
     private TextView tvGrade;
     private ImageView ivIcon;
+    private  TextView tvWeek;
 
     public InfoAdapter(Context context, int resource, ArrayList<DailyCA> objects){
         super(context, resource, objects);
@@ -44,6 +45,7 @@ public class InfoAdapter extends ArrayAdapter<DailyCA> {
 
         // Get the TextView object
         tvGrade = (TextView) rowView.findViewById(R.id.textViewGrade);
+        tvWeek = (TextView) rowView.findViewById(R.id.textViewWeek);
         // Get the ImageView object
         ivIcon = (ImageView) rowView.findViewById(R.id.ivIcon);
 
@@ -55,6 +57,7 @@ public class InfoAdapter extends ArrayAdapter<DailyCA> {
         // Set the TextView to show the food
 
         tvGrade.setText(currentWeek.getDgGrade());
+        tvWeek.setText("Week " + currentWeek.getWeek());
         // Set the image to star or nostar accordingly
             ivIcon.setImageResource(R.drawable.dg);
 
