@@ -41,6 +41,7 @@ public class InfoActivity extends AppCompatActivity {
                 Intent rpIntent = new Intent(Intent.ACTION_VIEW);
                 // Set the URL to be used.
                 rpIntent.setData(Uri.parse("http://www.rp.edu.sg"));
+                
                 startActivity(rpIntent);
 
             }
