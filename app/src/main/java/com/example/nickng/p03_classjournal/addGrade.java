@@ -26,7 +26,6 @@ public class addGrade extends AppCompatActivity {
         rg = (RadioGroup) findViewById(R.id.rgGrade);
 
         final String pos = getIntent().getStringExtra("pos");
-        final String module = getIntent().getStringExtra("module");
         tvWeek.setText("Week " + pos);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
@@ -36,8 +35,9 @@ public class addGrade extends AppCompatActivity {
                 RadioButton rb = (RadioButton) findViewById(selected);
                 String grade = rb.getText().toString();
                 Intent i = new Intent();
-                DailyCA addObject = new DailyCA(grade,module,Integer.getInteger(pos));
-                i.putExtra("object", addObject);
+                Integer position = Integer.getInteger(pos);
+
+                i.putExtra("grade", grade);
                 // Set result to RESULT_OK to indicate normal
                 // response and pass in the intent containing the
                 // like

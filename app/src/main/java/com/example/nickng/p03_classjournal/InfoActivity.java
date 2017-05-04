@@ -17,8 +17,8 @@ public class InfoActivity extends AppCompatActivity {
     ArrayAdapter aa1;
     ArrayList<DailyCA> dailyCA;
     int requestCode = 1;
-    DailyCA newObject;
-
+    String types;
+    String grade;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,9 +29,9 @@ public class InfoActivity extends AppCompatActivity {
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
 
         Intent i = getIntent();
-        final String types = i.getStringExtra("class");
+        types = i.getStringExtra("class");
 
-        newObject = (DailyCA) i.getSerializableExtra("object");
+        String grade = i.getStringExtra("grade");
         dailyCA = new ArrayList<DailyCA>();
 
 
@@ -57,7 +57,6 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent rpIntent = new Intent(InfoActivity.this, addGrade.class);
-                rpIntent.putExtra("module", types);
                 rpIntent.putExtra("pos", String.valueOf(dailyCA.size() + 1));
                 startActivityForResult(rpIntent, requestCode);
             }
@@ -96,7 +95,8 @@ public class InfoActivity extends AppCompatActivity {
         // Only handle when 2nd activity closed normally
         //  and data contains something
         if(resultCode == RESULT_OK){
-            if(newObject!=null){
+            if(grade!=null){
+                DailyCA newObject = new DailyCA(grade, types,dailyCA.size());
                 dailyCA.add(newObject);
             }
 
