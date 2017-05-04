@@ -101,10 +101,10 @@ public class InfoActivity extends AppCompatActivity {
             String grade = data.getStringExtra("grade");
             Toast.makeText(InfoActivity.this, grade, Toast.LENGTH_SHORT).show();
             Toast.makeText(InfoActivity.this, types, Toast.LENGTH_SHORT).show();
-            Toast.makeText(InfoActivity.this, String.valueOf(dailyCA.size()+1), Toast.LENGTH_SHORT).show();
-            DailyCA newObject = new DailyCA(grade, types, dailyCA.size());
-            dailyCA.add(0,newObject);
-aa1.notifyDataSetChanged();
+            Toast.makeText(InfoActivity.this, String.valueOf(dailyCA.size() + 1), Toast.LENGTH_SHORT).show();
+            DailyCA newObject = new DailyCA(grade, types, (dailyCA.size() + 1));
+            dailyCA.add(newObject);
+            aa1.notifyDataSetChanged();
         }
     }
 
