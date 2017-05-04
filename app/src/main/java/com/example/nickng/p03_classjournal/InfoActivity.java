@@ -27,6 +27,7 @@ public class InfoActivity extends AppCompatActivity {
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
         Intent i = getIntent();
         String types = i.getStringExtra("class");
+        getSupportActionBar().setTitle("Info for " + types);
         dailyCA = new ArrayList<DailyCA>();
 
         // Link this Activity object, the row.xml layout for
