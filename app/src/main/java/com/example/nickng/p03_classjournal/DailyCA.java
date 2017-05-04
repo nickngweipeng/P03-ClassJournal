@@ -7,19 +7,25 @@ import java.io.Serializable;
  */
 
 public class DailyCA implements Serializable{
-    private String week;
-    private String grade;
+    private String dgGrade;
+    private String moduleCode;
+    private int week;
 
-    public String getWeek() {
+    public String getDgGrade() {
+        return dgGrade;
+    }
+
+    public String getModuleCode() {
+        return moduleCode;
+    }
+
+    public int getWeek(){
         return week;
     }
 
-    public String getGrade() {
-        return grade;
-    }
-
-    public DailyCA(String week,String grade) {
+    public DailyCA(String dgGrade, String moduleCode, int week) {
+        this.dgGrade = dgGrade;
+        this.moduleCode = moduleCode;
         this.week = week;
-        this.grade = grade;
     }
 }
