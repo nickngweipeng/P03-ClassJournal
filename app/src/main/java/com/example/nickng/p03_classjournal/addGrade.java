@@ -22,16 +22,16 @@ public class addGrade extends AppCompatActivity {
         btnSubmit = (Button) findViewById(R.id.btnSubmit);
         tvWeek = (TextView) findViewById(R.id.tvWeek);
         rg = (RadioGroup) findViewById(R.id.rgGrade);
+        tvWeek.setText("Week " + pos);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int selected = rg.getCheckedRadioButtonId();
-                RadioButton rb = (RadioButton)findViewById(selected);
+                RadioButton rb = (RadioButton) findViewById(selected);
                 String grade = rb.getText().toString();
                 Intent i = new Intent();
                 i.putExtra("addgrade", grade);
-                i.putExtra("pos", pos);
                 // Set result to RESULT_OK to indicate normal
                 // response and pass in the intent containing the
                 // like
