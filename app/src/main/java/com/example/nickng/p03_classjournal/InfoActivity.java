@@ -63,9 +63,9 @@ public class InfoActivity extends AppCompatActivity {
 
                 String to = "jackielim8695@gmail.com";
                 String subject = "C347";
-                String message = "";
+                String message = "Hi Faci \n\n I am .....\n Please see my remarks so far, Thank You \n\n";
                 for (int i=0; i < dailyCA.size()+1; i++){
-                    message += "Hi Faci \n\n I am .....\n Please see my remarks so far, Thank You \n\n Week " + String.valueOf(dailyCA.size() + 1) + ": DG:" + dailyCA.get(0).getDgGrade();
+                    message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(0).getDgGrade();
                 }
 
                 Intent email = new Intent(Intent.ACTION_SEND);
