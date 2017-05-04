@@ -27,13 +27,15 @@ public class InfoActivity extends AppCompatActivity {
         Button btnAdd = (Button) findViewById(R.id.buttonAdd);
         Button btnEmail = (Button) findViewById(R.id.buttonEmail);
         lv1 = (ListView) this.findViewById(R.id.listViewInfo);
-
         Intent i = getIntent();
         final String types = i.getStringExtra("class");
 
-        newObject = (DailyCA) i.getSerializableExtra("object");
         dailyCA = new ArrayList<DailyCA>();
+        DailyCA obj1 = new DailyCA("A","C347",1);
+        DailyCA obj2 = new DailyCA("B","C347",2);
+        DailyCA obj3 = new DailyCA("C","C347",3);
 
+        dailyCA.add(obj1);
 
         // Link this Activity object, the row.xml layout for
         //  each row and the food String array together
@@ -97,8 +99,10 @@ public class InfoActivity extends AppCompatActivity {
         //  and data contains something
         if(resultCode == RESULT_OK){
             if(newObject!=null){
+                newObject = (DailyCA) data.getSerializableExtra("object");
                 dailyCA.add(newObject);
             }
+
 
         }
     }
