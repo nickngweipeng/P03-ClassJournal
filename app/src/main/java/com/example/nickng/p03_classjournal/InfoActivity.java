@@ -31,7 +31,7 @@ public class InfoActivity extends AppCompatActivity {
         Intent i = getIntent();
         types = i.getStringExtra("class");
 
-        grade = i.getStringExtra("grade");
+        String grade = i.getStringExtra("grade");
         dailyCA = new ArrayList<DailyCA>();
 
         DailyCA obj1 = new DailyCA("A","C347",1);
@@ -80,7 +80,7 @@ public class InfoActivity extends AppCompatActivity {
                 String subject = "C347";
                 String message = "Hi Faci \n\n I am .....\n Please see my remarks so far, Thank You \n\n";
                 for (int i = 0; i < dailyCA.size() + 1; i++) {
-                    message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(i).getDgGrade() + "\n";
+                    message += " Week : " + String.valueOf(dailyCA.size() + 1) + " DG:" + dailyCA.get(0).getDgGrade();
                 }
 
                 Intent email = new Intent(Intent.ACTION_SEND);
