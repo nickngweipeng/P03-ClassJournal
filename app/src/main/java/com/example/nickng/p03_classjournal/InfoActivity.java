@@ -32,7 +32,7 @@ public class InfoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent rpIntent = new Intent(InfoActivity.this, addGrade.class);
-                rpIntent.putExtra("pos", String.valueOf(size()+1);
+                rpIntent.putExtra("pos", String.valueOf(.size()+1);
                 startActivity(rpIntent);
             }
         });
