@@ -36,6 +36,8 @@ public class InfoActivity extends AppCompatActivity {
         DailyCA obj3 = new DailyCA("C","C347",3);
 
         dailyCA.add(obj1);
+        dailyCA.add(obj2);
+        dailyCA.add(obj3);
 
         // Link this Activity object, the row.xml layout for
         //  each row and the food String array together
